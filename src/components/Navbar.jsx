@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from "../assets/logo.png";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export const Navbar = () => {
     >
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center h-16 space-x-4">
-          <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
+          <img src={Logo} alt="Logo" className="h-20 w-auto" />
 
           <a href="#home" className="font-mono text-xl font-bold text-white">
             marica<span className="text-purple-500">.tech</span>
