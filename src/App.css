@@ -1,1 +1,25 @@
 
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-BLink {
+  animation: blink 1s step-start infinite;
+}
+
+/* Loading bar shimmer */
+@keyframes loading-bar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-loading-bar {
+  animation: loading-bar 1.5s ease-in-out infinite;
+}
+
+/* Button hover glow */
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}

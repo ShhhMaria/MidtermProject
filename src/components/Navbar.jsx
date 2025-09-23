@@ -4,14 +4,14 @@ export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(0, 0, 0, 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
+    <nav
+      className={`fixed top-0 w-full z-40 backdrop-blur-lg border-b border-white/10 shadow-lg transition-colors duration-300 ${
+        menuOpen ? "bg-[#ffd6e0]" : "bg-[#ffc0cb]"
+      }`}
+    >
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center h-16 space-x-4">
-          <img
-            src="/logo.png" // logo image path
-            alt="Logo"
-            className="h-20 sm:h-20 md:h-20 w-auto"
-          />
+          <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
 
           <a href="#home" className="font-mono text-xl font-bold text-white">
             marica<span className="text-purple-500">.tech</span>
@@ -27,65 +27,32 @@ export const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 ml-auto">
-            <a
-              href="#home"
-              className="text-black hover:text-white transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className="text-black hover:text-white transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="text-black hover:text-white transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-black hover:text-white transition-colors"
-            >
-              Contact
-            </a>
+            {["home", "about", "projects", "contact"].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className="text-pink-900 hover:text-white transition-colors font-medium"
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[rgba(249, 190, 221, 0.9)] backdrop-blur-lg absolute top-16 left-0 w-full px-4 py-6 space-y-4 z-30">
-          <a
-            href="#home"
-            className="block text-black text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="block text-black text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </a>
-          <a
-            href="#projects"
-            className="block text-black text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="block text-black text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </a>
+        <div className="md:hidden bg-[#ffd6e0] backdrop-blur-lg absolute top-16 left-0 w-full px-4 py-6 space-y-4 z-30">
+          {["home", "about", "projects", "contact"].map((section) => (
+            <a
+              key={section}
+              href={`#${section}`}
+              className="block text-pink-900 text-lg font-semibold"
+              onClick={() => setMenuOpen(false)}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </a>
+          ))}
         </div>
       )}
     </nav>
