@@ -1,5 +1,5 @@
 import React from "react";
-
+import ProfileImage from "../../assets/Photo.jpg";
 const Home = () => {
   return (
     <section
@@ -9,7 +9,7 @@ const Home = () => {
     >
       <div className="text-center z-10 px-4 relative">
         <img
-          src="Photo.jpg"
+          src={ProfileImage}
           alt="Profile"
           className="w-40 h-40 object-cover rounded-full mx-auto mb-6 shadow-lg border-4 border-white"
         />
